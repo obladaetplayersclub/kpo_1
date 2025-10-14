@@ -89,7 +89,7 @@ public class ZooApplication implements CommandLineRunner {
             int ht = in.nextInt();
 
             System.out.print("Имя: ");
-            String name = in.nextLine();
+            String name = in.next();
 
             System.out.print("Кол-во кг еды: ");
             int food = in.nextInt();;
@@ -106,7 +106,7 @@ public class ZooApplication implements CommandLineRunner {
             int pt = in.nextInt();
 
             System.out.print("Имя: ");
-            String name = in.nextLine();
+            String name = in.next();
 
             System.out.print("Еда/сутки (кг): ");
             int food = in.nextInt();
