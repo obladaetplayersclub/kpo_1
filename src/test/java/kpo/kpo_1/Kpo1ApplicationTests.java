@@ -3,7 +3,6 @@ package kpo.kpo_1;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import zoo.Service.Contact;
@@ -12,6 +11,7 @@ import zoo.buildings.Vetclinic;
 import zoo.buildings.Zoo;
 import zoo.domain.animals.Animals;
 import zoo.domain.animals.Herbo;
+import zoo.domain.animals.Predator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,5 +64,32 @@ class Kpo1ApplicationTests {
         assertTrue(contactList.get(0) instanceof Herbo);
     }
 
+    @Test
+    @DisplayName("allFood() возвращает 0 для пустого зоопарка")
+    void info_returnsZero_whenNoAnimals() {
+        List<Animals> empty = new ArrayList<>();
+        Information info = new Information(empty);
+        assertEquals(0, info.allFood());
+    }
+
+    @Test
+    @DisplayName("toString() травоядного содержит имя, тип и счастье")
+    void herbo_toString_containsKeyFields() {
+        Herbo h = new Herbo("Кролик", "Rabbit", 2, 9);
+        String s = h.toString();
+        assertTrue(s.contains("Кролик"));
+        assertTrue(s.contains("Rabbit"));
+        assertTrue(s.contains("9"));
+    }
+
+    @Test
+    @DisplayName("toString() хищника содержит имя и тип")
+    void predator_toString_containsKeyFields() {
+        Predator p = new Predator("Волк", "Wolf", 5);
+        String s = p.toString();
+        assertTrue(s.contains("Волк"));
+        assertTrue(s.contains("Wolf"));
+        assertTrue(s.contains("5"));
+    }
 
 }
