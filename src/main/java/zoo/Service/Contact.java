@@ -20,7 +20,7 @@ public class Contact {
             System.out.println("Контактный зоопарк обновлен!");
         }
         else {
-            System.out.println("Новых животных в зоопарке нет");
+            System.out.println("Новых животных в контактнои зоопарке нет");
         }
     }
 
