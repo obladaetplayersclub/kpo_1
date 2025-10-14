@@ -10,15 +10,18 @@ import java.util.List;
 @Service
 public class Contact {
     private List<Animals> contact;
-    public Contact(@Qualifier("storage") List<Animals> contact){
+    public Contact(@Qualifier("contactList") List<Animals> contact){
         this.contact = contact;
     }
 
     public void addContact(Animals animal){
         if (animal instanceof Herbo herbo && herbo.isTouchable()) {
             contact.add(herbo);
+            System.out.println("Контактный зоопарк обновлен!");
         }
-        System.out.println("Контактный зоопарк обновлён!");
+        else {
+            System.out.println("Новых животных в зоопарке нет");
+        }
     }
 
     public void showContact() {
